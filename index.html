@@ -327,5 +327,31 @@
             navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
         });
     </script>
+        <!-- 1. Подключаем саму библиотеку Swiper (без нее моторчик не заведется) -->
+    <script src="https://jsdelivr.net"></script>
+
+    <!-- 2. Включаем само горизонтальное листание для скриншотов и концептов -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Запуск первого слайдера (скриншоты)
+            const swiper1 = new Swiper('.mySwiper1', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                pagination: { el: '.swiper-pagination', clickable: true },
+                navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            });
+
+            // Запуск второго слайдера (концепты)
+            const swiper2 = new Swiper('.mySwiper2', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                pagination: { el: '.swiper-pagination', clickable: true },
+                navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            });
+        });
+    </script>
+
 </body>
 </html>
