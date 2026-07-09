@@ -4,79 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Самоанализ — Психологический RPG Хоррор</title>
+    
+    <!-- Подключаем стили для листания картинок (Swiper) -->
+    <link rel="stylesheet" href="https://jsdelivr.net" />
+
     <style>
         body {
             background-color: #0d0d0d;
-            color: #e0e0e0;
+            color: #00008B;
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
             text-align: center;
+            overflow-x: hidden; /* Защита от кривой прокрутки на телефонах */
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
+            box-sizing: border-box;
         }
 
+        /* Название игры сверху (адаптивное) */
         .game-title {
             color: #8b0000;
-            font-size: 3.5rem;
+            font-size: calc(2rem + 1.5vw); /* Уменьшается на мобилках */
             text-transform: uppercase;
-            letter-spacing: 6px;
-            margin-top: 30px;
-            margin-bottom: 25px;
+            letter-spacing: 4px;
+            margin: 20px 0;
             text-shadow: 0 0 12px rgba(139, 0, 0, 0.7);
         }
 
+        /* Главный АРТ */
         .main-art {
             width: 100%;
-            max-width: 800px;
             height: auto;
             max-height: 450px;
             object-fit: cover;
             border: 2px solid #222;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 20px auto;
             display: block;
-            transition: all 0.3s ease;
-        }
-        
-        .main-art:hover {
-            border-color: #8b0000;
-            box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+            border-radius: 4px;
         }
 
+        /* Адаптивная кнопка скачать */
         .download-btn {
             display: inline-block;
             background-color: #8b0000;
             color: #fff;
-            padding: 15px 50px;
-            font-size: 1.4rem;
+            padding: 15px 10%;
+            width: 60%;
+            max-width: 300px;
+            font-size: 1.2rem;
             font-weight: bold;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
             border: 2px solid #8b0000;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             box-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
             transition: all 0.3s ease;
+            box-sizing: border-box;
         }
 
         .download-btn:hover {
             background-color: transparent;
             color: #8b0000;
             box-shadow: 0 0 25px rgba(139, 0, 0, 0.7);
-            transform: scale(1.02);
         }
 
+        /* Секция Об игре */
         .about-section {
             text-align: left;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             line-height: 1.6;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1rem;
         }
 
         .about-section h3 {
@@ -85,106 +88,103 @@
             font-size: 1.4rem;
             border-bottom: 1px solid #222;
             padding-bottom: 5px;
-            letter-spacing: 1px;
         }
 
-        .genres-block {
-            margin-top: 25px;
-        }
-
+        /* Жанры */
         .genres-block h4 {
             color: #8b0000;
-            margin-bottom: 10px;
+            margin: 20px 0 10px 0;
             font-size: 1.1rem;
         }
 
         .genres-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .tag {
             border: 1px solid #8b0000;
-            padding: 6px 14px;
-            font-size: 0.9rem;
+            padding: 6px 12px;
+            font-size: 0.85rem;
             background-color: rgba(139, 0, 0, 0.05);
             color: #ccc;
-            width: fit-content;
-            letter-spacing: 1px;
         }
 
+        /* Стили для галерей-слайдеров */
         .gallery-section {
             text-align: left;
             margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            position: relative;
         }
 
         .gallery-section h3 {
             color: #8b0000;
             font-size: 1.4rem;
             margin-bottom: 15px;
-            letter-spacing: 1px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 5px;
         }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .grid-3 img {
+        .swiper {
             width: 100%;
-            height: 180px;
+            height: auto;
+            padding-bottom: 30px; /* Место под точки внизу */
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 220px;
             object-fit: cover;
             border: 1px solid #222;
-            transition: all 0.3s ease;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
 
-        .grid-3 img:hover {
-            border-color: #8b0000;
-            box-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
+        /* Красим стрелочки и точки слайдера в красный хоррор-цвет */
+        .swiper-button-next, .swiper-button-prev {
+            color: #8b0000 !important;
+            transform: scale(0.6); /* Слегка уменьшаем стрелки для мобилок */
+        }
+        .swiper-pagination-bullet-active {
+            background: #8b0000 !important;
         }
 
+        /* Контакты снизу */
         .contacts-section {
-            margin-top: 60px;
-            padding: 30px 20px;
+            margin-top: 40px;
+            padding: 25px 15px;
             border-top: 1px solid #222;
             background-color: #0a0a0a;
         }
 
         .contacts-section h4 {
             color: #8b0000;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
         }
 
         .contacts-section a {
             color: #aaa;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
             border-bottom: 1px dashed #444;
-            transition: color 0.3s, border-color 0.3s;
-        }
-
-        .contacts-section a:hover {
-            color: #8b0000;
-            border-color: #8b0000;
+            word-break: break-all; /* Чтобы длинная почта не ломала экран мобилки */
         }
 
         footer {
-            margin-top: 40px;
+            margin-top: 30px;
             color: #444;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
 
-        @media (max-width: 768px) {
-            .grid-3 {
-                grid-template-columns: 1fr;
+        /* Прячем стрелки на совсем маленьких экранах, чтобы не мешали листать пальцем */
+        @media (max-width: 480px) {
+            .swiper-button-next, .swiper-button-prev {
+                display: none !important;
+            }
+            .swiper-slide img {
+                height: 180px; /* Чуть ниже картинки на телефонах */
             }
         }
     </style>
@@ -193,12 +193,16 @@
 
     <div class="container">
         
+        <!-- НАЗВАНИЕ -->
         <div class="game-title">Самоанализ</div>
 
+        <!-- ГЛАВНЫЙ АРТ -->
         <img src="art.jpg" alt="Главный Арт Самоанализ" class="main-art">
 
+        <!-- СКАЧАТЬ -->
         <a href="#" class="download-btn">Скачать игру</a>
 
+        <!-- БЛОК ОБ ИГРЕ И ЖАНРЫ -->
         <div class="about-section">
             <h3>Об игре:</h3>
             <p>Захватывающий RPG мир с самыми разнообразными локациями, интересными персонажами, боссами и многое другое...</p>
@@ -210,32 +214,48 @@
                     <span class="tag">Хоррор</span>
                     <span class="tag">RPG</span>
                     <span class="tag">Приключения</span>
-                    <span class="tag">Инди</span>
+                    <span class="tag">Indie</span>
                 </div>
             </div>
         </div>
 
+        <!-- СКРИНШОТЫ (ЛИСТАЮТСЯ) -->
         <div class="gallery-section">
-            <h3></h3>
-            <div class="grid-3">
-                <img src="scr1.jpg" alt="Скриншот 1">
-                <img src="scr2.jpg" alt="Скриншот 2">
-                <img src="scr3.jpg" alt="Скриншот 3">
+            <h3>Скриншоты:</h3>
+            <div class="swiper mySwiper1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="scr1.jpg" alt="Скриншот 1"></div>
+                    <div class="swiper-slide"><img src="scr2.jpg" alt="Скриншот 2"></div>
+                    <div class="swiper-slide"><img src="scr3.jpg" alt="Скриншот 3"></div>
+                </div>
+                <!-- Кнопки управления и точки -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
 
+        <!-- КОНЦЕПТЫ (ЛИСТАЮТСЯ) -->
         <div class="gallery-section">
             <h3>Концепты:</h3>
-            <div class="grid-3">
-                <img src="con1.jpg" alt="Концепт 1">
-                <img src="con2.jpg" alt="Концепт 2">
-                <img src="con3.jpg" alt="Концепт 3">
+            <div class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="con1.jpg" alt="Концепт 1"></div>
+                    <div class="swiper-slide"><img src="con2.jpg" alt="Концепт 2"></div>
+                    <div class="swiper-slide"><img src="con3.jpg" alt="Концепт 3"></div>
+                </div>
+                <!-- Кнопки управления и точки -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
 
+        <!-- ПОЧТА ДЛЯ СВЯЗИ -->
         <div class="contacts-section">
-            <h4>для связи:</h4>
-            <a href="кита бери меня@gmail.com">кита задуши меня</a>
+            <h4>Контакты для связи:</h4>
+            <a href="yanie.nik404@gmail.com">yanie.nik404@gmail.com</a>
+            <a href="yanie.nik404@gmail.com">кита мяу мяу душить</a>
         </div>
 
         <footer>
@@ -243,6 +263,31 @@
         </footer>
 
     </div>
+
+    <!-- Подключаем скрипт для работы слайдеров (Swiper) -->
+    <script src="https://jsdelivr.net"></script>
+    <script>
+        // Запуск слайдера для скриншотов
+        const swiper1 = new Swiper('.mySwiper1', {
+            slicePerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        });
+
+        // Запуск слайдера для концептов
+        const swiper2 = new Swiper('.mySwiper2', {
+            slicePerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        });
+    </script>
+</body>
+</html>
+
 
 </body>
 </html>
