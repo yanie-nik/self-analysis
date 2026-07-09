@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Самоанализ — Психологический RPG Хоррор</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Название игры сверху */
+        .game-title {
+            color: #8b0000;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-top: 30px;
+            margin-bottom: 25px;
+            text-shadow: 0 0 12px rgba(139, 0, 0, 0.7);
+        }
+
+        /* Главный АРТ */
+        .main-art {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            border: 2px solid #222;
+            margin: 0 auto 25px auto;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .main-art:hover {
+            border-color: #8b0000;
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+        }
+
+        /* Кнопка скачать */
+        .download-btn {
+            display: inline-block;
+            background-color: #8b0000;
+            color: #fff;
+            padding: 15px 50px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid #8b0000;
+            margin-bottom: 50px;
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: transparent;
+            color: #8b0000;
+            box-shadow: 0 0 25px rgba(139, 0, 0, 0.7);
+            transform: scale(1.02);
+        }
+
+        /* Секция Об игре */
+        .about-section {
+            text-align: left;
+            margin-bottom: 50px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-section h3 {
+            color: #8b0000;
+            margin-top: 0;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #222;
+            padding-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        /* Блок жанров слева под текстом */
+        .genres-block {
+            margin-top: 25px;
+        }
+
+        .genres-block h4 {
+            color: #8b0000;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .genres-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            border: 1px solid #8b0000;
+            padding: 6px 14px;
+            font-size: 0.9rem;
+            background-color: rgba(139, 0, 0, 0.05);
+            color: #ccc;
+            width: fit-content;
+            letter-spacing: 1px;
+        }
+
+        /* Секции галерей */
+        .gallery-section {
+            text-align: left;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery-section h3 {
+            color: #8b0000;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Оформление картинок в галереях */
+        .grid-3 img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border: 1px solid #222;
+            transition: all 0.3s ease;
+        }
+
+        .grid-3 img:hover {
+            border-color: #8b0000;
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
+        }
+
+        /* Контакты снизу */
+        .contacts-section {
+            margin-top: 60px;
+            padding: 30px 20px;
+            border-top: 1px solid #222;
+            background-color: #0a0a0a;
+        }
+
+        .contacts-section h4 {
+            color: #8b0000;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .contacts-section a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-bottom: 1px dashed #444;
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        .contacts-section a:hover {
+            color: #8b0000;
+            border-color: #8b0000;
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #444;
+            font-size: 0.8rem;
+        }
+
+        /* Адаптивность для мобилок */
+        @media (max-width: 768px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- НАЗВАНИЕ -->
+        <div class="game-title">Самоанализ</div>
+
+        <!-- ГЛАВНЫЙ АРТ (подгрузит файл art.jpg) -->
+        <img src="art.jpg" alt="Главный Арт Самоанализ" class="main-art">
+
+        <!-- СКАЧАТЬ -->
+        <a href="#" class="download-btn">Скачать игру</a>
+
+        <!-- БЛОК ОБ ИГРЕ И ЖАНРЫ СЛЕВА -->
+        <div class="about-section">
+            <h3>Об игре:</h3>
+            <p>Захватывающий RPG мир с самыми разнообразными локациями, интересными персонажами, боссами и многое другое...</p>
+            
+            <div class="genres-block">
+                <h4>Жанры:</h4>
+                <div class="genres-list">
+                    <span class="tag">Психология</span>
+                    <span class="tag">Хоррор</span>
+                    <span class="tag">RPG</span>
+                    <span class="tag">Приключения</span>
+                    <span class="tag">Инди</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- СКРИНШОТЫ (подгрузит файлы scr1.jpg, scr2.jpg, scr3.jpg) -->
+        <div class="gallery-section">
+            <h3>Скриншоты:</h3>
+            <div class="grid-3">
+                <img src="scr1.jpg" alt="Скриншот 1">
+                <img src="scr2.jpg" alt="Скриншот 2">
+                <img src="scr3.jpg" alt="Скриншот 3">
+            </div>
+        </div>
+
+        <!-- КОНЦЕПТЫ (подгрузит файлы con1.jpg, con2.jpg, con3.jpg) -->
+        <div class="gallery-section">
+            <h3>Концепты:</h3>
+            <div class="grid-3">
+                <img src="con1.jpg" alt="Концепт 1">
+                <img src="con2.jpg" alt="Концепт 2">
+                <img src="con3.jpg" alt="Концепт 3">
+            </div>
+        </div>
+
+        <!-- ПОЧТА ДЛЯ СВЯЗИ -->
+        <div class="contacts-section">
+            <h4>Контакты для связи:</h4>
+            <a href="кита бери меня@gmail.com">mail@example.com</a>
+        </div>
+
+        <footer>
+            © 2026 Самоанализ. Все права защищены.
+        </footer>
+
+    </div>
+
+</body>
+</html>
