@@ -129,29 +129,40 @@
             padding-bottom: 5px;
         }
 
+               /* Жестко задаем размеры для слайдера, чтобы картинки не разлетались */
         .swiper {
             width: 100%;
-            height: auto;
-            padding-bottom: 30px; /* Место под точки внизу */
+            max-width: 600px; /* Ограничиваем максимальную ширину картинок */
+            height: 350px;    /* Фиксированная высота для аккуратного ряда */
+            margin: 0 auto 40px auto;
+            border: 1px solid #222;
+            background-color: #111;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
         }
 
         .swiper-slide img {
             width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border: 1px solid #222;
-            border-radius: 4px;
-            box-sizing: border-box;
+            height: 100%;
+            object-fit: contain; /* Картинка полностью поместится внутрь и не сожмется */
         }
 
-        /* Красим стрелочки и точки слайдера в красный хоррор-цвет */
+        /* Цвет стрелок управления */
         .swiper-button-next, .swiper-button-prev {
             color: #8b0000 !important;
-            transform: scale(0.6); /* Слегка уменьшаем стрелки для мобилок */
         }
         .swiper-pagination-bullet-active {
             background: #8b0000 !important;
         }
+
 
         /* Контакты снизу */
         .contacts-section {
