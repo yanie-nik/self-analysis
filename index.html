@@ -2,13 +2,11 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <!-- ВОТ ЭТУ СТРОЧКУ НАДО ВСТАВИТЬ: -->
     <link rel="icon" type="image/png" href="favicon.png">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Self-analysis</title>
     
-    <!-- Подключаем стили для листания картинок (Swiper) -->
     <link rel="stylesheet" href="https://jsdelivr.net" />
 
     <style>
@@ -29,17 +27,15 @@
             box-sizing: border-box;
         }
 
-        /* Название игры сверху (адаптивное) */
         .game-title {
             color: #8b0000;
-            font-size: calc(2rem + 1.5vw); /* Уменьшается на мобилках */
+            font-size: calc(2rem + 1.5vw); 
             text-transform: uppercase;
             letter-spacing: 4px;
             margin: 20px 0;
             text-shadow: 0 0 12px rgba(139, 0, 0, 0.7);
         }
 
-        /* Главный АРТ */
         .main-art {
             width: 100%;
             height: auto;
@@ -50,8 +46,7 @@
             display: block;
             border-radius: 4px;
         }
-
-        /* Адаптивная кнопка скачать */
+  
         .download-btn {
             display: inline-block;
             background-color: #8b0000;
@@ -77,7 +72,6 @@
             box-shadow: 0 0 25px rgba(139, 0, 0, 0.7);
         }
 
-        /* Секция Об игре */
         .about-section {
             text-align: left;
             margin-bottom: 40px;
@@ -93,7 +87,6 @@
             padding-bottom: 5px;
         }
 
-        /* Жанры */
         .genres-block h4 {
             color: #8b0000;
             margin: 20px 0 10px 0;
@@ -114,7 +107,6 @@
             color: #ccc;
         }
 
-        /* Стили для галерей-слайдеров */
         .gallery-section {
             text-align: left;
             margin-bottom: 40px;
@@ -129,12 +121,10 @@
             padding-bottom: 5px;
         }
 
-               /* Жестко задаем размеры для слайдера, чтобы картинки не разлетались */
-              /* Жестко задаем размеры для слайдера */
         .swiper {
             width: 100%;
             max-width: 600px;
-            height: 380px; /* Немного увеличили высоту, чтобы точки помещались внизу */
+            height: 380px; 
             margin: 0 auto 40px auto;
             background-color: #0d0d0d;
             overflow: hidden;
@@ -146,7 +136,7 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: calc(100% - 40px); /* Оставляем место внизу под точки */
+            height: calc(100% - 40px); 
         }
 
         .swiper-slide img {
@@ -157,42 +147,35 @@
             border-radius: 4px;
         }
 
-        /* НАСТРОЙКА КРАСНЫХ СТРЕЛОК ДЛЯ ЛИСТАНИЯ */
         .swiper-button-next, .swiper-button-prev {
-            color: #ff0000 !important; /* Ярко-красный цвет */
-            background-color: rgba(13, 13, 13, 0.8); /* Темный фон под стрелкой, чтобы ее было видно на любой картинке */
+            color: #ff0000 !important;
+            background-color: rgba(13, 13, 13, 0.8); 
             width: 40px !important;
             height: 40px !important;
             border-radius: 50%;
             border: 1px solid #8b0000;
         }
 
-        /* Уменьшаем размер самих стрелочек внутри круга, чтобы выглядело аккуратно */
         .swiper-button-next::after, .swiper-button-prev::after {
             font-size: 18px !important;
             font-weight: bold;
         }
 
-        /* Сдвигаем стрелки чуть ближе к краям */
         .swiper-button-next { right: 10px !important; }
         .swiper-button-prev { left: 10px !important; }
 
-        /* НАСТРОЙКА ТОЧЕК ВНИЗУ */
         .swiper-pagination {
             bottom: 5px !important;
         }
         .swiper-pagination-bullet {
-            background: #444 !important; /* Цвет неактивных точек */
+            background: #444 !important; 
             opacity: 1;
         }
         .swiper-pagination-bullet-active {
-            background: #ff0000 !important; /* Цвет активной точки */
+            background: #ff0000 !important;
             box-shadow: 0 0 8px #ff0000;
         }
 
-
-
-        /* Контакты снизу */
         .contacts-section {
             margin-top: 40px;
             padding: 25px 15px;
@@ -211,7 +194,7 @@
             text-decoration: none;
             font-size: 1rem;
             border-bottom: 1px dashed #444;
-            word-break: break-all; /* Чтобы длинная почта не ломала экран мобилки */
+            word-break: break-all; 
         }
 
         footer {
@@ -220,13 +203,12 @@
             font-size: 0.75rem;
         }
 
-        /* Прячем стрелки на совсем маленьких экранах, чтобы не мешали листать пальцем */
         @media (max-width: 480px) {
             .swiper-button-next, .swiper-button-prev {
                 display: none !important;
             }
             .swiper-slide img {
-                height: 180px; /* Чуть ниже картинки на телефонах */
+                height: 180px;
             }
         }
     </style>
@@ -235,16 +217,12 @@
 
     <div class="container">
         
-        <!-- НАЗВАНИЕ -->
         <div class="game-title">Самоанализ</div>
 
-        <!-- ГЛАВНЫЙ АРТ -->
         <img src="art.png" alt="Главный Арт Самоанализ" class="main-art">
 
-        <!-- СКАЧАТЬ -->
         <a href="#" class="download-btn">Скачать игру</a>
 
-        <!-- БЛОК ОБ ИГРЕ И ЖАНРЫ -->
         <div class="about-section">
             <h3>Об игре:</h3>
             <p>Захватывающий RPG мир с самыми разнообразными локациями, интересными персонажами, боссами и многое другое удушение Киты...</p>
@@ -261,7 +239,6 @@
             </div>
         </div>
 
-        <!-- СКРИНШОТЫ (ЛИСТАЮТСЯ) -->
         <div class="gallery-section">
             <h3></h3>
             <div class="swiper mySwiper1">
@@ -270,14 +247,12 @@
                     <div class="swiper-slide"><img src="scr2.png" alt="Скриншот 2"></div>
                     <div class="swiper-slide"><img src="scr3.png" alt="Скриншот 3"></div>
                 </div>
-                <!-- Кнопки управления и точки -->
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
             </div>
         </div>
 
-        <!-- КОНЦЕПТЫ (ЛИСТАЮТСЯ) -->
         <div class="gallery-section">
             <h3>Концепты:</h3>
             <div class="swiper mySwiper2">
@@ -286,14 +261,12 @@
                     <div class="swiper-slide"><img src="con2.png" alt="Концепт 2"></div>
                     <div class="swiper-slide"><img src="con3.png" alt="Концепт 3"></div>
                 </div>
-                <!-- Кнопки управления и точки -->
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
             </div>
         </div>
 
-        <!-- ПОЧТА ДЛЯ СВЯЗИ -->
         <div class="contacts-section">
             <h4>Контакты для связи:</h4>
             <a href="mailto:yanie.nik404@gmail.com">yanie.nik404@gmail.com</a><br>
@@ -306,10 +279,8 @@
 
     </div>
 
-    <!-- Подключаем скрипт для работы слайдеров (Swiper) -->
     <script src="https://jsdelivr.net"></script>
     <script>
-        // Запуск слайдера для скриншотов
         const swiper1 = new Swiper('.mySwiper1', {
             slicesPerView: 1,
             spaceBetween: 10,
@@ -318,7 +289,6 @@
             navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
         });
 
-        // Запуск слайдера для концептов
         const swiper2 = new Swiper('.mySwiper2', {
             slicesPerView: 1,
             spaceBetween: 10,
@@ -327,13 +297,10 @@
             navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
         });
     </script>
-        <!-- 1. Подключаем саму библиотеку Swiper (без нее моторчик не заведется) -->
     <script src="https://jsdelivr.net"></script>
 
-    <!-- 2. Включаем само горизонтальное листание для скриншотов и концептов -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Запуск первого слайдера (скриншоты)
             const swiper1 = new Swiper('.mySwiper1', {
                 slidesPerView: 1,
                 spaceBetween: 20,
@@ -342,7 +309,6 @@
                 navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
             });
 
-            // Запуск второго слайдера (концепты)
             const swiper2 = new Swiper('.mySwiper2', {
                 slidesPerView: 1,
                 spaceBetween: 20,
