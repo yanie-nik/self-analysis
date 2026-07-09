@@ -130,13 +130,13 @@
         }
 
                /* Жестко задаем размеры для слайдера, чтобы картинки не разлетались */
+              /* Жестко задаем размеры для слайдера */
         .swiper {
             width: 100%;
-            max-width: 600px; /* Ограничиваем максимальную ширину картинок */
-            height: 350px;    /* Фиксированная высота для аккуратного ряда */
+            max-width: 600px;
+            height: 380px; /* Немного увеличили высоту, чтобы точки помещались внизу */
             margin: 0 auto 40px auto;
-            border: 1px solid #222;
-            background-color: #111;
+            background-color: #0d0d0d;
             overflow: hidden;
             position: relative;
         }
@@ -146,22 +146,50 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: 100%;
+            height: calc(100% - 40px); /* Оставляем место внизу под точки */
         }
 
         .swiper-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Картинка полностью поместится внутрь и не сожмется */
+            object-fit: contain;
+            border: 1px solid #222;
+            border-radius: 4px;
         }
 
-        /* Цвет стрелок управления */
+        /* НАСТРОЙКА КРАСНЫХ СТРЕЛОК ДЛЯ ЛИСТАНИЯ */
         .swiper-button-next, .swiper-button-prev {
-            color: #8b0000 !important;
+            color: #ff0000 !important; /* Ярко-красный цвет */
+            background-color: rgba(13, 13, 13, 0.8); /* Темный фон под стрелкой, чтобы ее было видно на любой картинке */
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50%;
+            border: 1px solid #8b0000;
+        }
+
+        /* Уменьшаем размер самих стрелочек внутри круга, чтобы выглядело аккуратно */
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 18px !important;
+            font-weight: bold;
+        }
+
+        /* Сдвигаем стрелки чуть ближе к краям */
+        .swiper-button-next { right: 10px !important; }
+        .swiper-button-prev { left: 10px !important; }
+
+        /* НАСТРОЙКА ТОЧЕК ВНИЗУ */
+        .swiper-pagination {
+            bottom: 5px !important;
+        }
+        .swiper-pagination-bullet {
+            background: #444 !important; /* Цвет неактивных точек */
+            opacity: 1;
         }
         .swiper-pagination-bullet-active {
-            background: #8b0000 !important;
+            background: #ff0000 !important; /* Цвет активной точки */
+            box-shadow: 0 0 8px #ff0000;
         }
+
 
 
         /* Контакты снизу */
